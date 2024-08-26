@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - DroneZ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4A148C',
+                        secondary: '#00BCD4',
+                        accent: '#7E57C2',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #4A148C, #7E57C2, #00BCD4);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(45deg, #4A148C, #00BCD4);
+        }
+        .team-card {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .team-card:hover {
+            transform: rotateY(180deg);
+        }
+        .team-card-front, .team-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .team-card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header (same as before) -->
+    <header class="fixed top-0 left-0 w-full bg-transparent bg-opacity-90 z-50 transition-all duration-300 ease-in-out">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <img src="images/DroneZ1.png" alt="DroneZ Logo" id="company-logo" class="h-16 transition-all duration-300 ease-in-out">
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-primary hover:text-secondary transition duration-300">Home</a></li>
+                    <li><a href="about.html" class="text-primary hover:text-secondary transition duration-300">About</a></li>
+                    <li><a href="contact.html" class="text-primary hover:text-secondary transition duration-300">Contact</a></li>
+                    <li><a href="solutions.html" class="text-primary hover:text-secondary transition duration-300">Solutions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="bg-gradient-custom text-white py-32 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-6xl font-bold mb-4 text-center animate-fade-in">About DroneZ</h1>
+            <p class="text-2xl text-center animate-fade-in">Pioneering the Future of Road Safety with AI-Powered Drones</p>
+        </div>
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="absolute inset-0 bg-[url('path/to/abstract-tech-image.jpg')] bg-cover bg-center mix-blend-overlay"></div>
+    </section>
+
+    <!-- About the Project -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gradient">Revolutionizing Urban Infrastructure</h2>
+            <p class="text-xl text-center max-w-3xl mx-auto">DroneZ is at the forefront of innovation, harnessing AI-powered drones and cloud technology to transform road monitoring, dramatically reducing accidents and infrastructure costs.</p>
+        </div>
+    </section>
+
+    <!-- Vision, Mission, and Goals -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold mb-4 text-primary">Our Vision</h3>
+                    <p>Transforming urban infrastructure management with intelligent drone systems for safer roads and enhanced quality of life.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold mb-4 text-secondary">Our Mission</h3>
+                    <p>Elevating road safety and infrastructure through drone technology, AI, and cloud computing. Delivering real-time data to empower proactive maintenance and enhance lives in the communities we serve.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold mb-4 text-accent">Our Goals</h3>
+                    <ul class="list-disc list-inside">
+                        <li>Deploy advanced AI-powered drone road monitoring systems</li>
+                        <li>Create comprehensive road condition databases</li>
+                        <li>Become a trusted partner for governments worldwide</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center text-gradient">Meet Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="team-card relative h-64">
+                    <div class="team-card-front absolute w-full h-full bg-gradient-to-br from-primary to-accent text-white p-6 rounded-lg shadow-md flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-bold mb-2">Ahmed Rabaiah</h3>
+                        <p class="text-lg">CEO</p>
+                    </div>
+                    <div class="team-card-back absolute w-full h-full bg-white text-primary p-6 rounded-lg shadow-md flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-bold mb-2">Ahmed Rabaiah</h3>
+                        <p class="text-lg mb-4 text-center">Visionary leader driving innovation</p>
+                        <a href="#" class="text-accent hover:underline">Contact</a>
+                    </div>
+                </div>
+                <div class="team-card relative h-64">
+                    <div class="team-card-front absolute w-full h-full bg-gradient-to-br from-secondary to-accent text-white p-6 rounded-lg shadow-md flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-bold mb-2">Yazan Rabaiah</h3>
+                        <p class="text-lg">CTO</p>
+                    </div>
+                    <div class="team-card-back absolute w-full h-full bg-white text-primary p-6 rounded-lg shadow-md flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-bold mb-2">Yazan Rabaiah</h3>
+                        <p class="text-lg mb-4 text-center">Pioneering drone technology expert</p>
+                        <a href="#" class="text-accent hover:underline">Contact</a>
+                    </div>
+                </div>
+                <div class="team-card relative h-64">
+                    <div class="team-card-front absolute w-full h-full bg-gradient-to-br from-accent to-primary text-white p-6 rounded-lg shadow-md flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-bold mb-2">Louay Abrame</h3>
+                        <p class="text-lg">Lead Developer</p>
+                    </div>
+                    <div class="team-card-back absolute w-full h-full bg-white text-primary p-6 rounded-lg shadow-md flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-bold mb-2">Louay Abrame</h3>
+                        <p class="text-lg mb-4 text-center">Advanced software and database specialist</p>
+                        <a href="#" class="text-accent hover:underline">Contact</a>
+                    </div>
+                </div>
+                <div class="team-card relative h-64">
+                    <div class="team-card-front absolute w-full h-full bg-gradient-to-br from-primary to-secondary text-white p-6 rounded-lg shadow-md flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-bold mb-2">Reman Al-Sultan</h3>
+                        <p class="text-lg">Sales Manager</p>
+                    </div>
+                    <div class="team-card-back absolute w-full h-full bg-white text-primary p-6 rounded-lg shadow-md flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-bold mb-2">Reman Al-Sultan</h3>
+                        <p class="text-lg mb-4 text-center">Strategic sales leader</p>
+                        <a href="#" class="text-accent hover:underline">Contact</a>
+                    </div>
+                </div>
+                <div class="team-card relative h-64">
+                    <div class="team-card-front absolute w-full h-full bg-gradient-to-br from-secondary to-primary text-white p-6 rounded-lg shadow-md flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-bold mb-2">Suhaila Al Khalaf</h3>
+                        <p class="text-lg">Marketing Director</p>
+                    </div>
+                    <div class="team-card-back absolute w-full h-full bg-white text-primary p-6 rounded-lg shadow-md flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-bold mb-2">Suhaila Al Khalaf</h3>
+                        <p class="text-lg mb-4 text-center">Dynamic marketing strategist</p>
+                        <a href="#" class="text-accent hover:underline">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Achievements -->
+    <section class="py-20 bg-gradient-custom text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center">Key Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white text-primary p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                    <i class="fas fa-drone text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Revolutionary 4K Drone System</h3>
+                    <p>Unparalleled road monitoring capabilities</p>
+                </div>
+                <div class="bg-white text-primary p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                    <i class="fas fa-database text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Sophisticated Analytics Database</h3>
+                    <p>Comprehensive road data analysis</p>
+                </div>
+                <div class="bg-white text-primary p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                    <i class="fas fa-chart-line text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Improved Road Safety</h3>
+                    <p>Significant reduction in accidents and costs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as before) -->
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate sections on scroll
+        gsap.utils.toArray('.container').forEach(section => {
+            gsap.from(section.children, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 50) {
+                header.classList.add('bg-white', 'shadow-md');
+                header.classList.remove('bg-transparent');
+            } else {
+                header.classList.remove('bg-white', 'shadow-md');
+                header.classList.add('bg-transparent');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Road Defect Analysis - Improving Transportation</title>
+    <title>DroneZ - Revolutionizing Road Safety</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -17,31 +15,13 @@
                         secondary: '#00BCD4',
                         accent: '#7E57C2',
                     },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                    }
                 }
             }
         }
-
-
-
-        
-
-
     </script>
     <style>
-        .animate-fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-        .animate-fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
         .bg-gradient-custom {
-            background: linear-gradient(135deg, #485ca5, #459d96, #65bad3);
+            background: linear-gradient(135deg, #4A148C, #7E57C2, #00BCD4);
         }
         .text-gradient {
             background-clip: text;
@@ -49,88 +29,38 @@
             color: transparent;
             background-image: linear-gradient(45deg, #4A148C, #00BCD4);
         }
-
-
-
-        .drone-image-container {
-            perspective: 1000px;
-            width: 100%;
-            max-width: 500px; /* Adjust as needed */
-            margin: 0 auto;
-        }
-
         .hovering-drone {
             animation: hover 4s ease-in-out infinite;
-            transform-style: preserve-3d;
-            will-change: transform;
         }
-
         @keyframes hover {
-            0%, 100% {
-                transform: translateY(0) rotateX(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotateX(5deg);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
-
-        .hovering-drone:hover {
-            animation-play-state: paused;
-        }
-
-        .drone-image-container::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 20px;
-            background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
-            animation: shadowHover 4s ease-in-out infinite;
-        }
-
-        @keyframes shadowHover {
-            0%, 100% {
-                transform: translateX(-50%) scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateX(-50%) scale(0.8);
-                opacity: 0.1;
-            }
-        }
-
-
-
-
     </style>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
-    <!-- Header with Logo -->
     <header class="fixed top-0 left-0 w-full bg-transparent bg-opacity-90 z-50 transition-all duration-300 ease-in-out">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <img src="images/DroneZ1.png" alt="Company Logo" id="company-logo" class="h-16 transition-all duration-300 ease-in-out">
+            <img src="images/DroneZ1.png" alt="DroneZ Logo" id="company-logo" class="h-16 transition-all duration-300 ease-in-out">
             <nav>
                 <ul class="flex space-x-6">
                     <li><a href="#" class="text-primary hover:text-secondary transition duration-300">Home</a></li>
-                    <li><a href="#" class="text-primary hover:text-secondary transition duration-300">About</a></li>
-                    <li><a href="#" class="text-primary hover:text-secondary transition duration-300">Services</a></li>
-                    <li><a href="#" class="text-primary hover:text-secondary transition duration-300">Contact</a></li>
+                    <li><a href="about.html" class="text-primary hover:text-secondary transition duration-300">About</a></li>
+                    <li><a href="contact.html" class="text-primary hover:text-secondary transition duration-300">Contact</a></li>
+                    <li><a href="solutions.html" class="text-primary hover:text-secondary transition duration-300">Solutions</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="bg-gradient-custom text-white min-h-screen flex items-center pt-20">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 ">
-            <div class="drone-image-container">
-                <img src="images/DroneZ1.png" alt="DroneZ2" class="hovering-drone">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="order-2 md:order-1">
+                <img src="images/DroneZ1.png" alt="DroneZ" class="hovering-drone w-full max-w-md mx-auto">
             </div>
-            <div>
-                <h1 class="text-5xl font-bold mb-4 animate-fade-in">Revolutionizing Road Defect Analysis</h1>
-                <p class="text-xl mb-8 animate-fade-in">Improving Quality of Life and Environmental Conditions Through Advanced AI Technology</p>
+            <div class="order-1 md:order-2">
+                <h1 class="text-5xl font-bold mb-4 animate-fade-in">Pioneering Road Safety Innovation</h1>
+                <p class="text-xl mb-8 animate-fade-in">Transforming urban infrastructure with AI-powered drones and cloud technology</p>
                 <div class="space-x-4 animate-fade-in">
                     <a href="#" class="bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-secondary hover:text-white transition duration-300">Get Started</a>
                     <a href="#" class="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition duration-300">
@@ -141,178 +71,86 @@
         </div>
     </section>
 
-    <!-- Purpose Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in text-gradient">Our Vision</h2>
-            <p class="text-xl text-center mb-12 animate-fade-in">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in text-gradient">Our Vision</h2>
+            <p class="text-xl text-center mb-12 animate-fade-in max-w-3xl mx-auto">
                 To revolutionize the future of infrastructure management through cutting-edge drone technology, paving the way for safer, smarter, and more sustainable urban environments across the globe.
             </p>
 
-            <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in text-gradient">Our Goals</h2>
+            <h2 class="text-4xl font-bold text-center mt-20 mb-12 animate-fade-in text-gradient">Our Goals</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-gradient-to-br from-primary to-accent text-white p-6 rounded-lg shadow-md animate-fade-in">
                     <h3 class="text-xl font-semibold mb-2">Short-term Goal</h3>
-                    <p>In the next 24 months, our ambition is to launch and seamlessly deploy our state-of-the-art AI-powered drone technology in 10 key cities across the Kingdom of Saudi Arabia, setting a new standard for urban infrastructure management.</p>
+                    <p>Deploy our AI-powered drone technology in 10 key Saudi Arabian cities within 24 months.</p>
                 </div>
                 <div class="bg-gradient-to-br from-accent to-secondary text-white p-6 rounded-lg shadow-md animate-fade-in">
                     <h3 class="text-xl font-semibold mb-2">Mid-term Goal</h3>
-                    <p>Within the next five years, we aim to forge strategic partnerships with at least three leading governmental and private infrastructure entities, providing our unparalleled drone services to monitor and maintain urban road networks with unprecedented precision.</p>
+                    <p>Form strategic partnerships with 3+ leading infrastructure entities in the next five years.</p>
                 </div>
                 <div class="bg-gradient-to-br from-secondary to-primary text-white p-6 rounded-lg shadow-md animate-fade-in">
                     <h3 class="text-xl font-semibold mb-2">Long-term Goal</h3>
-                    <p>Our long-term vision is to transcend borders and establish DroneZ as a global leader in AI-driven drone solutions for infrastructure management, expanding our footprint into international markets and redefining the industry within the next decade.</p>
+                    <p>Establish DroneZ as a global leader in AI-driven infrastructure management solutions.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <h2 class="text-3xl font-bold text-center mt-20 mb-12 animate-fade-in text-gradient">Our Mission</h2>
-            <p class="text-xl text-center mb-12 animate-fade-in">
+    <section class="py-20 bg-gradient-to-r from-primary via-accent to-secondary text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Our Impact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
+                    <i class="fas fa-coins text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Cost Reduction</h3>
+                    <p>Minimizing the economic impact of road defects through early detection and repair.</p>
+                </div>
+                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
+                    <i class="fas fa-shield-alt text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Enhanced Safety</h3>
+                    <p>Improving road safety for all users by identifying and addressing hazards promptly.</p>
+                </div>
+                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
+                    <i class="fas fa-leaf text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Sustainability</h3>
+                    <p>Promoting eco-friendly transportation through efficient infrastructure management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in text-gradient">Our Mission</h2>
+            <p class="text-xl text-center mb-12 animate-fade-in max-w-3xl mx-auto">
                 At DroneZ, we are committed to redefining urban infrastructure management by harnessing the power of advanced AI and drone technology. Our mission is to deliver precise, real-time intelligence on road conditions, empowering cities to elevate safety, efficiency, and sustainability in their transportation networks for a brighter future.
             </p>
         </div>
     </section>
 
-    <!-- Outcomes Section -->
-    <section class="py-20 bg-gradient-to-r from-primary via-accent to-secondary text-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in">Outcomes</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">Reduction of Costs</h3>
-                    <p>Minimizing the economic impact of road defects through early detection and repair.</p>
-                </div>
-                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">Safer Transportation</h3>
-                    <p>Improving road safety for all users by identifying and addressing hazards promptly.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Measurable Goals Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in text-gradient">Measurable Goals</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gradient-to-r from-primary to-accent text-white p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">Efficient Defect Discovery</h3>
-                    <p>Implement AI-driven systems to quickly identify and categorize road defects.</p>
-                </div>
-                <div class="bg-gradient-to-r from-accent to-secondary text-white p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">Faster, Better Solutions</h3>
-                    <p>Develop rapid response mechanisms to address road issues more effectively than traditional methods.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Scope Section -->
-    <section class="py-20 bg-gradient-radial from-primary via-accent to-secondary text-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in">Project Scope</h2>
-            <div class="space-y-6">
-                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">1. Robust AI Analysis System</h3>
-                    <p>Develop an AI system capable of analyzing road defects in real-time as vehicles traverse the roadways.</p>
-                </div>
-                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">2. Dynamic Database System</h3>
-                    <p>Create a sophisticated database to store, process, and analyze incoming data from the AI system.</p>
-                </div>
-                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">3. Automated Data Distribution</h3>
-                    <p>Implement a system to automatically send processed data to relevant stakeholders for prompt action.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Milestones Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in text-gradient">Main Milestones</h2>
-            <div class="space-y-6">
-                <div class="bg-gradient-to-r from-primary to-accent text-white p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">1. Register Company</h3>
-                    <p>Establish the legal entity and complete all necessary paperwork.</p>
-                </div>
-                <div class="bg-gradient-to-r from-accent to-secondary text-white p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">2. Market Research</h3>
-                    <p>Conduct comprehensive market analysis to understand customer needs and competition.</p>
-                </div>
-                <div class="bg-gradient-to-r from-secondary to-primary text-white p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">3. Product Development</h3>
-                    <p>Design and develop the AI system, database, and data distribution mechanisms.</p>
-                </div>
-                <div class="bg-gradient-to-r from-primary to-accent text-white p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">4. Pilot Testing</h3>
-                    <p>Conduct trials with select customers to gather feedback and refine the system.</p>
-                </div>
-                <div class="bg-gradient-to-r from-accent to-secondary text-white p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-2">5. Go Live</h3>
-                    <p>Launch the product officially and begin full-scale operations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stakeholders' Needs Section -->
-    <section class="py-20 bg-gradient-to-r from-primary via-accent to-secondary text-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in">Stakeholders' Needs</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-4">Requirements</h3>
-                    <ul class="list-disc pl-5">
-                        <li>Use private cloud solutions for data protection</li>
-                    </ul>
-                </div>
-                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-4">Concerns</h3>
-                    <ul class="list-disc pl-5">
-                        <li>Ethical and privacy issues</li>
-                        <li>Inability to determine pothole depth</li>
-                    </ul>
-                </div>
-                <div class="bg-white text-primary p-6 rounded-lg shadow-md animate-fade-in">
-                    <h3 class="text-xl font-semibold mb-4">Expectations</h3>
-                    <ul class="list-disc pl-5">
-                        <li>High accuracy in defect detection</li>
-                        <li>Speed and efficiency in analysis</li>
-                        <li>Functionality in various weather conditions</li>
-                        <li>Analysis of road defect severity</li>
-                        <li>Seamless data transfer to the database</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call-to-Action Section -->
     <section class="py-20 bg-gradient-custom text-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4 animate-fade-in">Ready to Revolutionize Road Maintenance?</h2>
+            <h2 class="text-4xl font-bold mb-4 animate-fade-in">Ready to Revolutionize Road Maintenance?</h2>
             <p class="text-xl mb-8 animate-fade-in">Join us in creating safer, more efficient transportation networks.</p>
             <a href="#" class="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-secondary hover:text-white transition duration-300 animate-fade-in">Get Started Now</a>
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="bg-white text-primary py-12">
+    <footer class="bg-primary text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Company</h3>
-                    <img src="/api/placeholder/150/50" alt="Company Logo" class="mb-4">
+                    <img src="images/DroneZ1.png" alt="DroneZ Logo" class="mb-4 h-12">
                     <p>Revolutionizing road maintenance with AI since 2024.</p>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="hover:text-secondary transition duration-300">Home</a></li>
-                        <li><a href="#" class="hover:text-secondary transition duration-300">About</a></li>
-                        <li><a href="#" class="hover:text-secondary transition duration-300">Services</a></li>
-                        <li><a href="#" class="hover:text-secondary transition duration-300">Contact</a></li>
+                        <li><a href="about.html" class="hover:text-secondary transition duration-300">About</a></li>
+                        <li><a href="solutions.html" class="hover:text-secondary transition duration-300">Solutions</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition duration-300">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -333,74 +171,35 @@
                 </div>
             </div>
             <div class="mt-8 text-center">
-                <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+                <p>© 2024 DroneZ. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Logo scaling on scroll
+        // Add scroll event listener for header
         window.addEventListener('scroll', () => {
-        const logo = document.getElementById('company-logo');
-        const header = document.querySelector('header');
-        const navLinks = document.querySelectorAll('header nav a');
-
-        if (window.scrollY > 50) {
-            header.style.backgroundColor = 'white';
-            header.classList.add('shadow-md');
-            logo.style.height = '40px';
-            navLinks.forEach(link => link.classList.remove('text-white'));
-            navLinks.forEach(link => link.classList.add('text-primary'));
-        } else {
-            header.style.backgroundColor = 'transparent';
-            header.classList.remove('shadow-md');
-            logo.style.height = '64px';
-            navLinks.forEach(link => link.classList.add('text-white'));
-            navLinks.forEach(link => link.classList.remove('text-primary'));
-        }
-    });
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white', 'shadow-md');
+            } else {
+                header.classList.remove('bg-white', 'shadow-md');
+            }
+        });
 
         // Intersection Observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
                 }
             });
         }, { threshold: 0.1 });
 
-        // Observe all elements with the animate-fade-in class
         document.querySelectorAll('.animate-fade-in').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-4', 'transition', 'duration-1000');
             observer.observe(el);
         });
-
-        // GSAP animations for more complex animations
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Example of a more complex animation using GSAP
-        gsap.from(".hero-content", {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            ease: "power3.out",
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: ".hero-section",
-                start: "top center",
-            }
-        });
-
-
-
-        // For hovering image to stay hovering on scroll
-
-        document.addEventListener('scroll', function() {
-            const drone = document.querySelector('.hovering-drone');
-            if (drone) {
-                drone.style.animationPlayState = 'running';
-            }
-        }, { passive: true });
-
     </script>
 </body>
 </html>
