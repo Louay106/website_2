@@ -23,29 +23,47 @@
         .bg-gradient-custom {
             background: linear-gradient(135deg, #4A148C, #7E57C2, #00BCD4);
         }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slide-up {
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+        }
+        .slide-up.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-100 text-gray-800">
-    <!-- Header (same as main page) -->
-    <!-- Header (same as before) -->
+    <!-- Header -->
     <header class="fixed top-0 left-0 w-full bg-transparent bg-opacity-90 z-50 transition-all duration-300 ease-in-out">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <img src="images/DroneZ1.png" alt="DroneZ Logo" id="company-logo" class="h-16 transition-all duration-300 ease-in-out">
+            <img src="images/DroneZ1.png" alt="DroneZ Logo" id="company-logo" class="h-16 transition-all duration-300 ease-in-out" />
             <nav>
                 <ul class="flex space-x-6">
-                    <li><a href="index.html" class="text-primary hover:text-secondary transition duration-300">Home</a></li>
-                    <li><a href="about.html" class="text-primary hover:text-secondary transition duration-300">About</a></li>
-                    <li><a href="contact.html" class="text-primary hover:text-secondary transition duration-300">Contact</a></li>
-                    <li><a href="solutions.html" class="text-primary hover:text-secondary transition duration-300">Solutions</a></li>
+                    <li><a href="/" class="text-primary hover:text-secondary transition duration-300">Home</a></li>
+                    <li><a href="/about" class="text-primary hover:text-secondary transition duration-300">About</a></li>
+                    <li><a href="/contact" class="text-primary hover:text-secondary transition duration-300">Contact</a></li>
+                    <li><a href="/solutions" class="text-primary hover:text-secondary transition duration-300">Solutions</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
     <!-- Hero Section -->
     <section class="bg-gradient-custom text-white py-20">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold mb-4 text-center">Our Solutions</h1>
-            <p class="text-xl text-center">Revolutionizing Road Safety with AI-Powered Drones</p>
+            <h1 class="text-5xl font-bold mb-4 text-center fade-in">Our Solutions</h1>
+            <p class="text-xl text-center fade-in">Revolutionizing Road Safety with AI-Powered Drones</p>
         </div>
     </section>
 
@@ -53,30 +71,30 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <p class="mb-8 text-lg">At DroneZ, we're transforming road monitoring and safety with our cutting-edge AI-powered drones and cloud technology. Our solutions offer unparalleled accuracy in detecting road defects, reducing accidents, and minimizing infrastructure costs.</p>
+                <p class="mb-8 text-lg fade-in">At DroneZ, we're transforming road monitoring and safety with our cutting-edge AI-powered drones and cloud technology. Our solutions offer unparalleled accuracy in detecting road defects, reducing accidents, and minimizing infrastructure costs.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div class="bg-gradient-to-r from-primary to-accent text-white p-6 rounded-lg shadow-md">
+                    <div class="bg-gradient-to-r from-primary to-accent text-white p-6 rounded-lg shadow-md slide-up">
                         <h3 class="text-xl font-bold mb-4">4K Drone System</h3>
                         <p>Revolutionary high-resolution imaging for detailed road condition analysis.</p>
                     </div>
-                    <div class="bg-gradient-to-r from-accent to-secondary text-white p-6 rounded-lg shadow-md">
+                    <div class="bg-gradient-to-r from-accent to-secondary text-white p-6 rounded-lg shadow-md slide-up">
                         <h3 class="text-xl font-bold mb-4">AI-Powered Analysis</h3>
                         <p>Advanced algorithms for real-time defect detection and classification.</p>
                     </div>
-                    <div class="bg-gradient-to-r from-secondary to-primary text-white p-6 rounded-lg shadow-md">
+                    <div class="bg-gradient-to-r from-secondary to-primary text-white p-6 rounded-lg shadow-md slide-up">
                         <h3 class="text-xl font-bold mb-4">Comprehensive Database</h3>
                         <p>Sophisticated data storage and analytics for informed decision-making.</p>
                     </div>
-                    <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-lg shadow-md">
+                    <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-lg shadow-md slide-up">
                         <h3 class="text-xl font-bold mb-4">Cloud Integration</h3>
                         <p>Seamless data access and sharing for all stakeholders.</p>
                     </div>
                 </div>
 
-                <p class="mb-8 text-lg">Our solutions are designed to meet the unique needs of government agencies and private organizations responsible for road infrastructure. We offer:</p>
+                <p class="mb-8 text-lg fade-in">Our solutions are designed to meet the unique needs of government agencies and private organizations responsible for road infrastructure. We offer:</p>
 
-                <ul class="list-disc list-inside mb-8 space-y-2">
+                <ul class="list-disc list-inside mb-8 space-y-2 fade-in">
                     <li>Real-time road condition monitoring</li>
                     <li>Predictive maintenance insights</li>
                     <li>Accident risk reduction</li>
@@ -85,7 +103,7 @@
                 </ul>
 
                 <div class="mb-12">
-                    <h2 class="text-3xl font-bold mb-6 text-center text-primary">DroneZ in Action</h2>
+                    <h2 class="text-3xl font-bold mb-6 text-center text-primary fade-in">DroneZ in Action</h2>
                     <div class="aspect-w-16 aspect-h-9">
                         <iframe class="w-full h-96" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -98,24 +116,38 @@
         </div>
     </section>
 
-    <!-- Footer (same as main page) -->
+    <!-- Footer -->
 
     <script>
-        // Add any necessary JavaScript
-
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (scrollTop > 50) {
-                header.classList.add('bg-white', 'shadow-md');
-                header.classList.remove('bg-transparent');
+        // Add scroll event listener for header
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.classList.add("bg-white", "shadow-md");
             } else {
-                header.classList.remove('bg-white', 'shadow-md');
-                header.classList.add('bg-transparent');
+                header.classList.remove("bg-white", "shadow-md");
             }
         });
-        
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        document.querySelectorAll(".fade-in").forEach((el) => {
+            observer.observe(el);
+        });
+
+        document.querySelectorAll(".slide-up").forEach((el) => {
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
