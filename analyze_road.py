@@ -4,6 +4,7 @@ import torch
 import cv2
 import numpy as np
 import io
+import os
 
 app = Flask(__name__)
 
@@ -11,6 +12,11 @@ app = Flask(__name__)
 model_name = "edixo/road_good_damaged_condition"
 model = AutoModelForImageClassification.from_pretrained(model_name)
 image_processor = AutoImageProcessor.from_pretrained(model_name)  # Updated to AutoImageProcessor
+
+# Directory configuration
+STATIC_FOLDER = 'static'
+IMAGES_FOLDER = os.path.join(STATIC_FOLDER, 'images')
+STYLES_FOLDER = os.path.join(STATIC_FOLDER, 'styles')
 
 @app.route('/')
 def index():
@@ -55,19 +61,15 @@ def analyze_road():
         predicted_class = logits.argmax(-1).item()
 
     # Map Predicted Class to Label
-    labels = ["bad ", "good "]
+    labels = ["bad", "good"]
     prediction = labels[predicted_class]
 
     return jsonify({'prediction': prediction})
 
-# Serve static files from 'images' and 'templates' directories
-@app.route('/images/<path:filename>')
-def serve_image(filename):
-    return send_from_directory('images', filename)
-
-@app.route('/styles/<path:filename>')
-def serve_style(filename):
-    return send_from_directory('templates', filename)
+# Serve static files from the 'static' directory
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(STATIC_FOLDER, filename)
 
 if __name__ == '__main__':
     app.run(debug=True)

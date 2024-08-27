@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/style.css') }}"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DroneZ - Revolutionizing Road Safety</title>
@@ -25,66 +28,65 @@
         },
       };
     </script>
-
   </head>
-      <style>
-     .animate-fade-in {
-        opacity: 0;
-        transform: translateY(4px);
-        transition: opacity 1s ease, transform 1s ease;
-      }
-      .animate-fade-in.show {
-        opacity: 1;
+  <style>
+    .animate-fade-in {
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .animate-fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .custom-file-upload {
+      display: inline-block;
+      padding: 12px 24px;
+      cursor: pointer;
+      border-radius: 0.375rem; /* rounded-md */
+      border: 2px solid transparent;
+      background-color: #4a148c; /* Primary color */
+      color: #ffffff;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      width: 100%;
+    }
+    .custom-file-upload:hover {
+      background-color: #7e57c2; /* Accent color */
+    }
+    .custom-file-upload input[type="file"] {
+      display: none;
+    }
+
+    .bg-gradient-custom {
+      background: linear-gradient(135deg, #4a148c, #7e57c2, #00bcd4);
+    }
+    .text-gradient {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(45deg, #4a148c, #00bcd4);
+    }
+    .hovering-drone {
+      animation: hover 4s ease-in-out infinite;
+    }
+    @keyframes hover {
+      0%,
+      100% {
         transform: translateY(0);
       }
-      .custom-file-upload {
-        display: inline-block;
-        padding: 12px 24px;
-        cursor: pointer;
-        border-radius: 0.375rem; /* rounded-md */
-        border: 2px solid transparent;
-        background-color: #4A148C; /* Primary color */
-        color: #ffffff;
-        text-align: center;
-        font-size: 1rem;
-        font-weight: 600;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        width: 100%;
+      50% {
+        transform: translateY(-20px);
       }
-      .custom-file-upload:hover {
-        background-color: #7E57C2; /* Accent color */
-      }
-      .custom-file-upload input[type="file"] {
-        display: none;
-      }
-
-      .bg-gradient-custom {
-        background: linear-gradient(135deg, #4a148c, #7e57c2, #00bcd4);
-      }
-      .text-gradient {
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        background-image: linear-gradient(45deg, #4a148c, #00bcd4);
-      }
-      .hovering-drone {
-        animation: hover 4s ease-in-out infinite;
-      }
-      @keyframes hover {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-      .image-preview {
-        margin-top: 1rem;
-        max-width: 100%;
-        border-radius: 0.375rem; /* rounded-md */
-      }
-    </style>
+    }
+    .image-preview {
+      margin-top: 1rem;
+      max-width: 100%;
+      border-radius: 0.375rem; /* rounded-md */
+    }
+  </style>
   <body class="font-sans bg-gray-100 text-gray-800">
     <header
       class="fixed top-0 left-0 w-full bg-transparent bg-opacity-90 z-50 transition-all duration-300 ease-in-out"
@@ -93,7 +95,7 @@
         class="container mx-auto px-4 py-4 flex justify-between items-center"
       >
         <img
-          src="images/DroneZ1.png"
+          src="static/images/DroneZ1.png"
           alt="DroneZ Logo"
           id="company-logo"
           class="h-16 transition-all duration-300 ease-in-out"
@@ -141,7 +143,7 @@
       >
         <div class="order-2 md:order-1">
           <img
-            src="images/DroneZ1.png"
+            src="{{ url_for('static', filename='images/DroneZ1.png') }}"
             alt="DroneZ"
             class="hovering-drone w-full max-w-md mx-auto"
           />
@@ -171,36 +173,58 @@
       </div>
     </section>
     <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-          <h2 class="text-4xl font-bold text-center mb-12 text-gray-800 animate-fade-in">Road Condition Analysis</h2>
-          <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-8">
-            <form id="imageUploadForm" class="space-y-6">
-              <div>
-                <label for="imageUpload" class="block text-sm font-medium text-gray-700 mb-2">Upload an image of a road</label>
-                <label for="imageUpload" class="custom-file-upload">
-                  <span>Choose File</span>
-                  <input type="file" id="imageUpload" name="image" accept="image/*" required />
-                </label>
-                <!-- Image preview -->
-                <img id="imagePreview" class="hidden image-preview" alt="Image Preview" />
-              </div>
-              <button
-                type="submit"
-                class="w-full bg-primary text-white px-4 py-2 rounded-md hover:bg-accent transition duration-300 transform hover:scale-105"
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-4xl font-bold text-center mb-12 text-gray-800 animate-fade-in"
+        >
+          Road Condition Analysis
+        </h2>
+        <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-8">
+          <form id="imageUploadForm" class="space-y-6">
+            <div>
+              <label
+                for="imageUpload"
+                class="block text-sm font-medium text-gray-700 mb-2"
+                >Upload an image of a road</label
               >
-                Analyze Road Condition
-              </button>
-            </form>
-            <div
-              id="resultContainer"
-              class="hidden mt-8 bg-gray-100 p-6 rounded-lg shadow-lg transition-transform transform scale-95"
-            >
-              <h3 class="text-xl font-bold mb-2 text-gray-800">Analysis Result:</h3>
-              <p id="resultText" class="text-lg text-gray-700">Your results will appear here.</p>
+              <label for="imageUpload" class="custom-file-upload">
+                <span>Choose File</span>
+                <input
+                  type="file"
+                  id="imageUpload"
+                  name="image"
+                  accept="image/*"
+                  required
+                />
+              </label>
+              <!-- Image preview -->
+              <img
+                id="imagePreview"
+                class="hidden image-preview"
+                alt="Image Preview"
+              />
             </div>
+            <button
+              type="submit"
+              class="w-full bg-primary text-white px-4 py-2 rounded-md hover:bg-accent transition duration-300 transform hover:scale-105"
+            >
+              Analyze Road Condition
+            </button>
+          </form>
+          <div
+            id="resultContainer"
+            class="hidden mt-8 bg-gray-100 p-6 rounded-lg shadow-lg transition-transform transform scale-95"
+          >
+            <h3 class="text-xl font-bold mb-2 text-gray-800">
+              Analysis Result:
+            </h3>
+            <p id="resultText" class="text-lg text-gray-700">
+              Your results will appear here.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
     <section class="py-20 bg-white">
       <div class="container mx-auto px-4">
         <h2
@@ -445,22 +469,24 @@
         );
         observer.observe(el);
       });
-      document.getElementById('imageUpload').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        const preview = document.getElementById('imagePreview');
-  
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            preview.src = e.target.result;
-            preview.classList.remove('hidden');
-          };
-          reader.readAsDataURL(file);
-        } else {
-          preview.classList.add('hidden');
-        }
-      });
-  
+      document
+        .getElementById("imageUpload")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          const preview = document.getElementById("imagePreview");
+
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              preview.src = e.target.result;
+              preview.classList.remove("hidden");
+            };
+            reader.readAsDataURL(file);
+          } else {
+            preview.classList.add("hidden");
+          }
+        });
+
       document
         .getElementById("imageUploadForm")
         .addEventListener("submit", async (e) => {
@@ -470,11 +496,15 @@
           formData.append("image", imageFile);
 
           try {
-            const response = await axios.post("analyze_road", formData, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            });
+            const response = await axios.post(
+              "https://dronez.vercel.app/analyze_road",
+              formData,
+              {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              }
+            );
             const result = response.data;
             document.getElementById(
               "resultText"
