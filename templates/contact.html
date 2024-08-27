@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DroneZ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4A148C',
+                        secondary: '#00BCD4',
+                        accent: '#7E57C2',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #4A148C, #7E57C2, #00BCD4);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slide-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .form-field {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .form-field.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-transparent bg-opacity-90 z-50 transition-all duration-300 ease-in-out">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <img src="images/DroneZ1.png" alt="DroneZ Logo" id="company-logo" class="h-16 transition-all duration-300 ease-in-out" />
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="/" class="text-primary hover:text-secondary transition duration-300">Home</a></li>
+                    <li><a href="/about" class="text-primary hover:text-secondary transition duration-300">About</a></li>
+                    <li><a href="/contact" class="text-primary hover:text-secondary transition duration-300">Contact</a></li>
+                    <li><a href="/solutions" class="text-primary hover:text-secondary transition duration-300">Solutions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-custom text-white py-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-bold mb-4 text-center fade-in">Contact Us</h1>
+            <p class="text-xl text-center fade-in">We're here to answer your questions and explore opportunities together</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <p class="mb-8 text-lg text-center fade-in">We would love to hear from you! At DroneZ, we value open communication and are here to answer any questions you may have about our services, technology, or partnership opportunities.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gray-100 p-6 rounded-lg slide-up">
+                        <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+                        <p class="mb-2"><i class="fas fa-envelope mr-2 text-primary"></i> info@dronez.com</p>
+                        <p class="mb-2"><i class="fas fa-phone mr-2 text-primary"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-map-marker-alt mr-2 text-primary"></i> 123 Drone Street, Tech City, 12345</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg slide-up">
+                        <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-2xl text-primary hover:text-accent transition duration-300"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-2xl text-primary hover:text-accent transition duration-300"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-2xl text-primary hover:text-accent transition duration-300"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <div class="mb-4 form-field">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name">
+                    </div>
+                    <div class="mb-4 form-field">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Your Email">
+                    </div>
+                    <div class="mb-6 form-field">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Message</label>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Your Message" rows="4"></textarea>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button class="bg-primary hover:bg-accent text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300" type="button">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <script>
+        // Logo scaling on scroll
+        window.addEventListener('scroll', () => {
+            const logo = document.getElementById('company-logo');
+            const header = document.querySelector('header');
+            const navLinks = document.querySelectorAll('header nav a');
+
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'white';
+                header.classList.add('shadow-md');
+                logo.style.height = '40px';
+                navLinks.forEach(link => link.classList.remove('text-white'));
+                navLinks.forEach(link => link.classList.add('text-primary'));
+            } else {
+                header.style.backgroundColor = 'transparent';
+                header.classList.remove('shadow-md');
+                logo.style.height = '64px';
+                navLinks.forEach(link => link.classList.add('text-white'));
+                navLinks.forEach(link => link.classList.remove('text-primary'));
+            }
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.slide-up').forEach(el => observer.observe(el));
+        document.querySelectorAll('.form-field').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
