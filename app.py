@@ -80,4 +80,4 @@ def serve_static(filename):
     return send_from_directory(STATIC_FOLDER, filename)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
