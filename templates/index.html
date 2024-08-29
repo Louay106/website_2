@@ -95,7 +95,7 @@
         class="container mx-auto px-4 py-4 flex justify-between items-center"
       >
         <img
-          src="static/images/DroneZ1.png"
+          src="{{ url_for('static', filename='images/DroneZ1.png') }}"
           alt="DroneZ Logo"
           id="company-logo"
           class="h-16 transition-all duration-300 ease-in-out"
@@ -189,13 +189,7 @@
               >
               <label for="imageUpload" class="custom-file-upload">
                 <span>Choose File</span>
-                <input
-                  type="file"
-                  id="imageUpload"
-                  name="image"
-                  accept="image/*"
-                  required
-                />
+                <input type="file" id="imageUpload" name="image" required />
               </label>
               <!-- Image preview -->
               <img
@@ -496,15 +490,11 @@
           formData.append("image", imageFile);
 
           try {
-            const response = await axios.post(
-              "analyze_road",
-              formData,
-              {
-                headers: {
-                  "Content-Type": "multipart/form-data",
-                },
-              }
-            );
+            const response = await axios.post("/analyze_road", formData, {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            });
             const result = response.data;
             document.getElementById(
               "resultText"

@@ -3,7 +3,7 @@ from transformers import AutoModelForImageClassification, AutoImageProcessor
 import torch
 import cv2
 import numpy as np
-import io
+ 
 import os
 
 app = Flask(__name__)
@@ -11,10 +11,10 @@ app = Flask(__name__)
 # Load Pre-trained Model and Image Processor
 model_name = "edixo/road_good_damaged_condition"
 model = AutoModelForImageClassification.from_pretrained(model_name)
-image_processor = AutoImageProcessor.from_pretrained(model_name)  # Updated to AutoImageProcessor
+image_processor = AutoImageProcessor.from_pretrained(model_name)
 
 # Directory configuration
-STATIC_FOLDER = 'static'
+STATIC_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
 IMAGES_FOLDER = os.path.join(STATIC_FOLDER, 'images')
 STYLES_FOLDER = os.path.join(STATIC_FOLDER, 'styles')
 
@@ -41,7 +41,7 @@ def analyze_road():
 
     image_file = request.files['image']
     image_bytes = image_file.read()
-    
+
     # Convert image bytes to numpy array
     image_array = np.frombuffer(image_bytes, np.uint8)
     
@@ -51,20 +51,28 @@ def analyze_road():
     # Convert BGR to RGB
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-    # Preprocess the image
-    inputs = image_processor(images=image, return_tensors="pt")
+    # Preprocess the image without padding and truncation
+    try:
+        inputs = image_processor(images=image, return_tensors="pt")
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
     # Make predictions
-    with torch.no_grad():
-        outputs = model(**inputs)
-        logits = outputs.logits
-        predicted_class = logits.argmax(-1).item()
+    try:
+        with torch.no_grad():
+            outputs = model(**inputs)
+            logits = outputs.logits
+            predicted_class = logits.argmax(-1).item()
 
-    # Map Predicted Class to Label
-    labels = ["bad", "good"]
-    prediction = labels[predicted_class]
+        # Map Predicted Class to Label
+        labels = ["bad", "good"]
+        prediction = labels[predicted_class]
 
-    return jsonify({'prediction': prediction})
+        return jsonify({'prediction': prediction})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 
 # Serve static files from the 'static' directory
 @app.route('/static/<path:filename>')
